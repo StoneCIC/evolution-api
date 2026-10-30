@@ -8,8 +8,8 @@ RUN git clone https://github.com/EvolutionAPI/evolution-api.git .
 
 RUN npm install
 
-# Buscar y generar el cliente Prisma encontrando el schema automáticamente en el proyecto
-RUN find . -name "schema.prisma" -exec npx prisma generate --schema={} \;
+# Generar Prisma apuntando directamente a la subcarpeta del código fuente
+RUN npx prisma generate --schema=./src/prisma/schema.prisma
 
 RUN npm run build
 
